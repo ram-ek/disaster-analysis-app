@@ -5,25 +5,25 @@ const Disaster = require('./models/Disaster');
 require('dotenv').config();
 
 const climateChangeData = [
-  {
-    name: "Global Warming",
-    description: "Global warming refers to the long-term increase in Earth's average surface temperature due to human activities, particularly the release of greenhouse gases like carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O). These gases trap heat in the atmosphere, creating a greenhouse effect that warms the planet.",
-    causes: [
-      {
-        name: "Green House Gas Emissions",
-        description: "Indonesia is one of the world's top 10 greenhouse gas emitters. The country's emissions account for 34% of the global emissions caused by land use, land use change, and forestry (LULUCF)."
-      },
-      {
-        name: "Deforestation",
-        description: "Indonesia's forests are being cut down to make way for agriculture and other development. Carbon-rich peatlands are being cleared for agriculture, making them more vulnerable to fires that release large amounts of carbon into the atmosphere."
-      },
-      {
-        name: "Industrial processes",
-        description: "Various industrial activities release greenhouse gases, such as methane and carbon dioxide, into the atmosphere."
-      }
-    ],
-    images: "/images/global_warming.jpg", // Sample image URL
-  },
+  // {
+  //   name: "Global Warming",
+  //   description: "Global warming refers to the long-term increase in Earth's average surface temperature due to human activities, particularly the release of greenhouse gases like carbon dioxide (CO₂), methane (CH₄), and nitrous oxide (N₂O). These gases trap heat in the atmosphere, creating a greenhouse effect that warms the planet.",
+  //   causes: [
+  //     {
+  //       name: "Green House Gas Emissions",
+  //       description: "Indonesia is one of the world's top 10 greenhouse gas emitters. The country's emissions account for 34% of the global emissions caused by land use, land use change, and forestry (LULUCF)."
+  //     },
+  //     {
+  //       name: "Deforestation",
+  //       description: "Indonesia's forests are being cut down to make way for agriculture and other development. Carbon-rich peatlands are being cleared for agriculture, making them more vulnerable to fires that release large amounts of carbon into the atmosphere."
+  //     },
+  //     {
+  //       name: "Industrial processes",
+  //       description: "Various industrial activities release greenhouse gases, such as methane and carbon dioxide, into the atmosphere."
+  //     }
+  //   ],
+  //   images: "/images/global_warming.jpg", // Sample image URL
+  // },
   {
     name: "Earthquakes",
     description: "Indonesia is one of the most seismically active regions in the world, frequently experiencing earthquakes due to its position along the Pacific Ring of Fire, a horseshoe-shaped zone known for frequent seismic activity and volcanic eruptions. This geological setting results in constant tectonic movement, making earthquakes a common natural event. In Indonesia, earthquakes vary in intensity, from mild tremors to massive quakes, often followed by secondary disasters like tsunamis, landslides, and liquefaction.",
@@ -100,21 +100,21 @@ const climateChangeData = [
     ],
     images: "/images/volcano.jpg", // Sample image URL
   },
-  {
-    name: "Ocean Acidification",
-    description: "The acidification of Indonesian oceans endangers its marine ecosystems, notably coral reefs that host diverse marine species and support the livelihoods of coastal communities.",
-    causes: [
-      {
-        name: "Rising Sea Temperatures",
-        description: "As ocean temperatures rise due to global warming, coral reefs experience stress and expel the algae living inside them, leading to coral bleaching."
-      },
-      {
-        name: "Increased CO₂ Levels",
-        description: "More carbon dioxide in the atmosphere leads to higher concentrations of carbonic acid in oceans, making them more acidic. This weakens coral skeletons and affects marine biodiversity."
-      },
-    ],
-    images: "/images/ocean_acidification.png", // Sample image URL
-  },
+  // {
+  //   name: "Ocean Acidification",
+  //   description: "The acidification of Indonesian oceans endangers its marine ecosystems, notably coral reefs that host diverse marine species and support the livelihoods of coastal communities.",
+  //   causes: [
+  //     {
+  //       name: "Rising Sea Temperatures",
+  //       description: "As ocean temperatures rise due to global warming, coral reefs experience stress and expel the algae living inside them, leading to coral bleaching."
+  //     },
+  //     {
+  //       name: "Increased CO₂ Levels",
+  //       description: "More carbon dioxide in the atmosphere leads to higher concentrations of carbonic acid in oceans, making them more acidic. This weakens coral skeletons and affects marine biodiversity."
+  //     },
+  //   ],
+  //   images: "/images/ocean_acidification.png", // Sample image URL
+  // },
   {
     name: "Forest Fires",
     description: "Forest fires in Indonesia, especially in Sumatra and Kalimantan, are exacerbated by climate change. These fires are primarily caused by land clearance for palm oil plantations but are made more severe by prolonged droughts and higher temperatures. The resulting haze can affect air quality across the region, leading to health hazards.",
@@ -1090,9 +1090,9 @@ const seedDatabase = async () => {
 
     // Step 3: Update climate change references in disasters
     // Associate disasters with the climate changes manually
-    const globalWarmingClimateChange = climateChanges.find(
-      (climate) => climate.name === 'Global Warming'
-    );
+    // const globalWarmingClimateChange = climateChanges.find(
+    //   (climate) => climate.name === 'Global Warming'
+    // );
     const risingSeaLevelsClimateChange = climateChanges.find(
       (climate) => climate.name === 'Rising Sea Levels'
     );
@@ -1104,9 +1104,9 @@ const seedDatabase = async () => {
       (climate) => climate.name === 'Extreme Weather Events'
     )
 
-    const oceanAcidificationClimateChange = climateChanges.find(
-      (climate) => climate.name === 'Ocean Acidification'
-    )
+    // const oceanAcidificationClimateChange = climateChanges.find(
+    //   (climate) => climate.name === 'Ocean Acidification'
+    // )
 
     const volcanicErruptionClimateChange = climateChanges.find(
       (climate) => climate.name === 'Volcanic Erruptions'
@@ -1116,8 +1116,8 @@ const seedDatabase = async () => {
       (climate) => climate.name === 'Forest Fires'
     )
     // Link disasters to Global Warming
-    globalWarmingClimateChange.disasters.push(disasters[0]._id); // Coastal Flooding
-    await globalWarmingClimateChange.save();
+    // globalWarmingClimateChange.disasters.push(disasters[0]._id); // Coastal Flooding
+    // await globalWarmingClimateChange.save();
 
     // Link disasters to Rising Sea Levels
     risingSeaLevelsClimateChange.disasters.push(disasters[0]._id); // Coastal Flooding
@@ -1139,11 +1139,11 @@ const seedDatabase = async () => {
 
     await extremeWeatherEventsClimateChange.save();
 
-    oceanAcidificationClimateChange.disasters.push(disasters[10]._id); // Coral Reef Bleaching
-    oceanAcidificationClimateChange.disasters.push(disasters[11]._id); // Decline in Fish Stocks
-    oceanAcidificationClimateChange.disasters.push(disasters[12]._id); // Decline in Shellfish Populations"
+    // oceanAcidificationClimateChange.disasters.push(disasters[10]._id); // Coral Reef Bleaching
+    // oceanAcidificationClimateChange.disasters.push(disasters[11]._id); // Decline in Fish Stocks
+    // oceanAcidificationClimateChange.disasters.push(disasters[12]._id); // Decline in Shellfish Populations"
 
-    await oceanAcidificationClimateChange.save();
+    // await oceanAcidificationClimateChange.save();
 
     volcanicErruptionClimateChange.disasters.push(disasters[13]._id); // Lava Flows
     volcanicErruptionClimateChange.disasters.push(disasters[14]._id); // Lava Flows

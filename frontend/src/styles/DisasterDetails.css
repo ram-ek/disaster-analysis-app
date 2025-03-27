@@ -134,3 +134,20 @@
 .disaster-header .disaster-summary {
   flex: 1;
 }
+
+/* Mitigation for disasters */
+.disaster-mitigation h3 {
+  font-size: 1.8rem;
+  color: #3498db; /* Blue for Mitigation title */
+  margin-top: 20px;
+}
+
+.disaster-mitigation ul li {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  color: #2980b9; /* Blue text for mitigation and handling */
+  font-size: 1.3rem;
+  transition: transform 0.2s, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
+}
